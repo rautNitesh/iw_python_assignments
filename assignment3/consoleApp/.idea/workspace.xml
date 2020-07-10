@@ -19,11 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aee75c44-9c0c-47f5-b45e-41d931943062" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/console.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/course.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/student.csv" afterDir="false" />
-    </list>
+    <list default="true" id="aee75c44-9c0c-47f5-b45e-41d931943062" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,7 +72,7 @@
       <workItem from="1594347014065" duration="3679000" />
       <workItem from="1594351070497" duration="2460000" />
       <workItem from="1594357437908" duration="2763000" />
-      <workItem from="1594363101617" duration="2057000" />
+      <workItem from="1594363101617" duration="2365000" />
     </task>
     <servers />
   </component>

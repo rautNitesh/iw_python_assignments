@@ -131,11 +131,26 @@ class Student:
                 print("Due:", i['due'])
                 print("*********************")
 
-    def update(self):
+    def returnDeposit(self):
+        if self.due == '20000':
+            self.due = 20000
+            self.bal = 0
+            self.update()
+            print("Succesfully Returned deposit")
+        else:
+            print("Complete the course first")
+
+    def update(self, name=None):
         with open('student.csv', 'w') as student:
             save = csv.DictWriter(student, ["Name", 'id', 'course', 'bal', 'due'])
-            self.data += [{"Name": self.name, "id": self.id, "course": self.course, "bal": self.bal, "due": self.due}]
-            save.writerows(self.data)
+            if name == None :
+                self.data += [{"Name": self.name, "id": self.id, "course": self.course, "bal": self.bal, "due": self.due}]
+                save.writerows(self.data)
+            else:
+                self.data += [{"Name": name, "id": self.id, "course": self.course, "bal": self.bal, "due": self.due}]
+                save.writerows(self.data)
+                
+        return
 
     def delete(self):
         with open('student.csv', 'w') as student:
@@ -158,9 +173,12 @@ while Repeat:
                     "4.Pay \n"
                     "5.Get all details\n"
                     "6.Delete Student\n"
-                    "7.Exit\n")
+                    "7.Update student\n"
+                    "8.Return Deposit\n"
+                    "9.Exit\n"
+                    )
         option = int(opt)
-        if option == 7:
+        if option == 9:
             Repeat = False
         if option == 1:
             name = input("Enter Course Name\n")
@@ -197,6 +215,22 @@ while Repeat:
             course = input("Enter course name\n")
             s = Student(name, id, course)
             s.delete()
+        if option == 7:
+            name = input("Enter student name\n")
+            id = input("Enter id\n")
+            course = input("Enter course name\n")
+            name2 = input("Enter name to update")
+            s = Student(name, id, course)
+            s.update(name2)
+        if option == 8:
+            name = input("Enter student name\n")
+            id = input("Enter id\n")
+            course = input("Enter course name\n")
+            s = Student(name, id, course)
+            s.returnDeposit()
+            
+
+
 
 
 
