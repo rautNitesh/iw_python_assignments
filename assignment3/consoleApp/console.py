@@ -16,12 +16,12 @@ class Course:
         v = self.line
         if len(v) != 0:
             print("***************************************************")
-            print(f"Available course of study for the course {self.name}")
+            print(f"Available course of study for the course {self.name}\n")
             print("***************************************************")
             for row in self.line:
                 print(f"-{row}")
         else:
-            print("Currently no available")
+            print("Currently no available\n")
 
     def check_availability(self):
         c = self.line
@@ -47,22 +47,23 @@ class Student:
             self.id = id
             self.course = course
         if name == None and id == None and course == None:
-            print("Students details:")
+            print("Students details:\n")
             return
         for d in self.data:
             if d["Name"] == name and d["id"] == id and d["course"] == course:
                 self.bal = d['bal']
                 self.due = d['due']
                 self.data.remove(d)
-            else:
-                print("Invalid details ,please check these info")
+                return
+        
+        print("Invalid details ,please check these info\n")
 
     def get_details(self, name, id, course):
         with open('student.csv', 'r') as student:
             d = csv.DictReader(student, ['Name', 'id', 'course', 'bal', 'due'])
             for info in list(d):
                 if info["Name"] == name and info["id"] == id and info["course"] == course:
-                    print("***********************")
+                    print("***********************\n")
                     print(f"Name: {info['Name']}")
                     print(f"id: {info['id']}")
                     print(f"course: {info['course']}")
@@ -70,14 +71,14 @@ class Student:
                     print(f"Due: {info['due']}")
                     print("***********************")
                     return
-        print("Sorry, no info available")
+        print("Sorry, no info available\n")
         return
 
     def enroll(self):
         d = self.data
         for info in d:
             if info["Name"] == self.name and info["course"] == self.course:
-                print("Sorry, you are already in the course")
+                print("Sorry, you are already in the course\n")
                 return
 
         self.id = len(d)+1
@@ -89,7 +90,7 @@ class Student:
         v = self.due
         if len(v) != 0:
             if int(self.due) == 20000:
-                opt = input("You have two installments to pay press 1 to pay all or 2 to pay first installment")
+                opt = input("You have two installments to pay press 1 to pay all or 2 to pay first installment\n")
                 if int(opt) == 1:
                     self.due = 0
                     self.bal = 20000
@@ -97,17 +98,17 @@ class Student:
                     self.due = 10000
                     self.bal = 10000
                 else:
-                    print("Error choice")
+                    print("Error choice\n")
                     self.pay()
-                print("You are successfully registered")
+                print("You are successfully registered\n")
 
             elif int(self.due) == 10000:
-                opt = input("Please press 1 to pay the remaining installment")
+                opt = input("Please press 1 to pay the remaining installment\n")
                 if int(opt) == 1:
                     self.bal = 20000
                     self.due = 0
             else:
-                print("You have already paid full")
+                print("You have already paid full\n")
             print("*******************")
             print("You current status")
             print("Name:", self.name)
@@ -136,9 +137,9 @@ class Student:
             self.due = 20000
             self.bal = 0
             self.update()
-            print("Succesfully Returned deposit")
+            print("Succesfully Returned deposit\n")
         else:
-            print("Complete the course first")
+            print("Complete the course first\n")
 
     def update(self, name=None):
         with open('student.csv', 'w') as student:
@@ -164,7 +165,7 @@ while Repeat:
     try:
         o = int(input("Enter 1 to see Menu\n"))
     except ValueError:
-        print("Enter integer")
+        print("Enter integer\n")
     if o == 1:
         opt = input("Enter the One of the available option\n"
                     "1.Get Course Details\n"
