@@ -11,8 +11,8 @@ class Author(models.Model):
 class Blog(models.Model):
     title = models.CharField(max_length=150)
     blog_body = models.TextField()
-    created_at = models.DateField(auto_now=True)
-    updated_at = models.DateField(auto_now_add=True)
+    created_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
 
     def __str__(self):
