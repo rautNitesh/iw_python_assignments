@@ -9,10 +9,9 @@
         <div class="blog_content">
             <p class="grey">
                 {% if post.updated_at %}
-                    {{ post.updated_at }}
-                {% else %}
-                    {{ post.created_at }}
+                    update at:{{ post.updated_at }}
                 {% endif %}
+                    created at:{{ post.created_at }}
             </p>
             <p>{{ post.author }}</p>
             <p>{{ post.blog_body }}</p>
